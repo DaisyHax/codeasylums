@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Atomic Energy Management System</title>
+	<link rel="stylesheet" href="aimain.css">
+</head>
+<body>
+	<div id="wrapper">
+	<header id="main">
+		<h1>Tsunami Alert System</h1>
+	</header>
+	<div id="small_div">
+	
+	<section id="sec1">
+		<script type="text/javascript" id="scr">
+		var loop=Math.floor((Math.random() * 30) + 1);
+		var result=new Array(loop);
+		k=0;
+		function tsunami(w,v,t)
+		{	//alert("hi");
+			this.w=w;
+			this.v=v;
+			this.t=t;
+			//var result;
+			if(w>200&&v>800&&t<60)
+			{
+			document.write("<br/><br/>WARNING!!! TSUNAMI<br/>");
+			document.write("Activate RPS reactor protection system!<br/>");
+			document.write("Activating...<br/>");
+			document.write("Reactor ready to engage with tsunami in<br/>");
+			
+			for(i=10;i>=1;i--)
+			{
+				document.write("T-"+i);
+				document.write(" seconds<br/>");
+			}
+
+			document.write("READY!!!<br/><br/>");
+			result[k]="TSUNAMI!-Reactor SAFE";
+			}
+			else
+			{
+				document.write("NO TSUNAMI!<br/><br/> ");
+				result[k]="No Tsunami";
+			}
+			k++;
+		}
+		
+		var wave=new Array(loop);
+		var vel=new Array(loop);
+		var time=new Array(loop);
+		for(i=0;i<loop;i++)
+		{
+			 wave[i]=Math.floor((Math.random() * 300) + 150);
+			vel[i]=Math.floor((Math.random() * 1000) + 650);
+			time[i]=Math.floor((Math.random() * 120) + 30);
+			tsunami(wave[i],vel[i],time[i]);
+		}
+		
+		</script>
+		
+	</section>
+	<aside id="res">
+		<h3>Computed Result</h3>
+		<table>
+			<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</table>
+		
+		<script type="text/javascript" id="scr2">
+			var table='';
+			var rows=2;
+			var cols=4;
+			table+='<tr>';
+				table+='<th>S.no.</th>';
+				table+='<th>Wavelength(km)</th>';
+				table+='<th>Velocity(kmph)</th>';
+				table+='<th>Estimated Hit Time (min)</th>';
+				table+='<th>Result</th>';
+			table+='</tr>';
+			
+			for(var r=0;r<loop;r++)
+			{
+				table+='<tr>';
+					table+='<td>'+(r+1)+'</td>';
+					table+='<td>'+wave[r]+'</td>';
+					table+='<td>'+vel[r]+'</td>';
+					table+='<td>'+time[r]+'</td>';
+					table+='<td>'+result[r]+'</td>';
+				table+='</tr>';
+			}
+			document.write('<table border=1>'+table+'</table>');
+		</script>
+	</aside>
+	</div>
+	<footer>
+	</footer>
+	</div>
+</body>
+</html>

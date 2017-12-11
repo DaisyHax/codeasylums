@@ -1,0 +1,20 @@
+#heading
+{
+	font:bold 32px Tahoma;
+	color:BLUE;
+}
+body
+{
+	background-image:url("10.jpg");
+	width:100%;
+}
+div.pic1
+{
+	float:left;
+	border: 2px solid black;
+	margin-right: 32px;
+}
+#wrapper
+{
+	margin:10px;
+}

@@ -1,0 +1,11 @@
+#heading
+{
+	font:bold 32px Tahoma;
+	color:BLUE;
+}
+body
+{
+	text-align:center;
+	background-image:url("10.jpg");
+	width:100%;
+}
