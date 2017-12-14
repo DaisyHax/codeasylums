@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ajax use</title>
+</head>
+<body>
+	<form>
+		Input: 
+		<input type="text" name="username" id="user">
+		Password: 
+		<input type="password" name="password" id="pw">
+		<button type="button" onclick="loadDoc()">Load Text</button>
+	</form>
+
+	<div id="ajax">
+
+	</div>
+	<script type="text/javascript">//call back func runs after the file is read completely
+		function loadDoc()
+		{
+			var u=document.getElementById("user").value;
+			var p=document.getElementById("pw").value;
+			
+			var formData={"username":u , "password":p}; // this is a json
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() //CALLBACK FUNCTION
+			{
+				if(this.readyState == 4 && this.status == 200) // 2xx are success code, 4xx are failure codes in http
+				{
+					document.getElementById("ajax").innerHTML = this.responseText;
+				}
+			};
+
+			xhttp.open("POST","http://172.16.32.123:3000/post",true); //getting request using ajax
+
+			//send headers
+			xhttp.setRequestHeader("Content-type","application/json");  //using post  . since we r sending json, we specifies application/json
+			xhttp.send(JSON.stringify(formData)); // passing data in post through this as formData -can be seen in network->all->formData tab by doing ctrl+shift+i
+
+
+			//xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");  // since we r sending encoded url
+			//xhttp.send("username=12&password=34");
+
+		}
+			/*
+				readyState holds the status of the XMLHttp Request
+				0: request not initialised
+				1: server connection established
+				2: request recieved
+				3: processing request
+				4: request finished and response 
+			*/
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Local Storage</title>
+</head>
+<body>
+	<form id="newform2" "><!--To register-->
+		username<br>
+		<input type="text" name="username" id="usern"><br>
+		passw<br>
+		<input type="text" name="password" id="psw"><br>
+		<input type="submit" name="b2" value="register" id="b2" onclick="store()">
+		
+	</form>
+
+	<form id="newform3" action="blog.html" "><!--To register-->
+		username<br>
+		<input type="text" name="username" id="usern1"><br>
+		passw<br>
+		<input type="text" name="password" id="psw1"><br>
+		
+		<input type="submit" name="b2" value="login" id="b2" onclick="validate()">
+	</form>
+	<script type="text/javascript">  //we have websql for html as database but not for windows
+		function store()
+		{
+			localStorage.setItem("username",document.forms[0].usern.value);
+			localStorage.setItem("password",document.forms[0].psw.value);
+		}	
+		function validate() //checking the validity of username and pw
+		{
+			var name=document.forms[1].usern1.value;
+			alert(name);
+			var pw=document.forms[1].psw1.value;
+			alert(pw);
+			if(name==localStorage.getItem("username")&&pw==localStorage.getItem("password"))
+			{
+				document.getElementById("newform2").submit();
+				return true;
+			}
+			else
+			{
+				alert("sorry");
+				return false;
+			}
+
+		}
+
+	</script>
+
+</body>
+</html>

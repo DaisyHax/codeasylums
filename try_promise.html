@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promise Html</title>
+</head>
+<body>
+	<!-- New Data types other than var -> let , const  . Now var not that much used.
+	const=for setting constants
+	var =has global scope within a function
+	let= has a block scope where it has been executed - for eg only the for loop block or only the if block . It helps to avoid random conflicts.
+	-->
+
+	<script type="text/javascript">
+		function varTest()
+		{
+			var x=1;
+			if (true)
+			{
+				var x=2; //same var
+				console.log(x); //2
+			}
+			console.log(x);//2
+		}
+		function varTest2()
+		{
+			let x=1;
+			if (true)
+			{
+				let x=2; //same var
+				console.log(x); //2
+			}
+			console.log(x);//1
+		}
+
+
+		// promise = successfully resolve or reject the promise ==== new Promise()
+		/*let myFirstPromise=new Promise((resolve,reject)=>{        //'=>' is a fat arrow  = is nothing but a representation of a function like function(resolve,reject)
+			setTimeout(function(){
+				//resolve("Success!");    // we can only write either resolve or reject not both at once.
+				reject("Failed");
+			},250); //timeout of 250ms
+		});
+		//.then is for resolve response.        .catch is for reject response.
+		myFirstPromise.then((successMessage)=>{alert("Yay"+successMessage)}).catch((failMessage)=>{alert("OOPS "+failMessage)});*/
+	</script>
+
+	<script type="text/javascript">// We are using xhr here but that is a very old method . So we use fetch or jquery now .
+		/*let request=new Promise((resolve,reject)=>{
+			const xhttp = new XMLHttpRequest();
+			xhttp.open("GET","http://koushikmln.com:7500");   // if the server is down or hoste address is wrong then it goes to catch otherise it goes to then
+			xhttp.onload=() => resolve(xhttp.responseText);
+			xhttp.onerror=() => reject(xhttp.status);
+			xhttp.send();
+		});
+		request.then(success=>{alert("Success ! "+success);}).catch(error=>{alert("Error"+error);});*/
+	</script>
+
+	<script type="text/javascript">
+		/*fetch("http://koushikmln.com:7500")    // since default method is get , we did not specify get in method
+		.then(
+			function(response){
+				if(response.status!=200)
+				{
+					console.log("there is a problem"+response.status);
+					return;
+				}
+				response.text().then(data=>{
+					alert(data);
+				});
+			}
+
+			)
+		.catch(function(err){
+			console.log("Fetch Error: ",err);
+		});*/
+	</script>
+
+	<script type="text/javascript">
+		function json(response){
+			return response.json();
+		}
+		fetch("http://koushikmln.com:7500/post",{
+			method: "post",
+			headers:{
+				"Content-type":"application/x-www-form-urlencoded;"
+			},
+			body:"username=foo&password=bar"
+		})
+		//.then(response=>{return response.json()})    // here response.json() converts json into array , we dont hv to write JSON.parse
+		.then(json)
+		.then(function(data){
+			console.log("Request succeeded with JSON response",data);
+		})
+		.catch(function(error){
+			console.log("request failed ",error);
+		});
+
+	</script>
+
+</body>
+</html>

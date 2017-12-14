@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Actions</title>
+</head><!--get sends by url(not that used -data seen by everyone) ,,,,, post sends by xhr(in network tab in ctrl+shift+i)    .....    172.16.32.123:3000 is the local host created-->
+<body>
+	<form action="http://172.16.32.123:3000/post" method="POST"><!--<form action="http://172.16.32.123:3000/get" method="GET">-->
+		<input type="text" name="Name">
+		<button type="submit">Hi</button>
+		
+	</form>
+</body>
+</html>

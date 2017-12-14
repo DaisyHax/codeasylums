@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EVENTS IN HTML</title>
+</head>
+<body > <!--onload()-->
+	<!--<button onclick="hello()">Read More</button>              this functionality was done in nature.html in comments . it works !!-->
+	<form id="newform" action="blog.html" onsubmit="submitfunc();">
+		username<br>
+		<input type="text" name="username" id="username"><br>
+		password<br>
+		<input type="text" name="password" id="passw"><br>
+		<!--<input type="submit" name="Submit">-->
+		<button type="button" onclick="hello()">Submit this</button><!--change()-->
+		<button type="button" onclick="reset()">Reset</button><br>
+		<input type="submit" name="b1" id="b1">
+
+		Select A Value
+		<select id="cakes" onchange="changefunc()">
+			<option value="redv">red velvet cake</option>
+			<option value="cheese">Cheese cake</option>
+			<option value="brownie">Brownie</option>
+			<option value="pastry">Pastry</option>
+		</select>
+	</form>
+	<form id="newform2" action="blog.html" onsubmit="return validate();">
+		username<br>
+		<input type="text" name="username" id="usern"><br>
+		passw<br>
+		<input type="text" name="password" id="psw"><br>
+		<input type="submit" name="b2" id="b2">
+	</form>
+	<script type="text/javascript">
+		function hello()
+		{
+			//document.getElementById("").src="";
+			//alert("page is loaded");
+			document.getElementById("newform").submit();
+		}
+		function reset()
+		{
+			document.getElementById("newform").reset();
+		}
+		function change()
+		{
+			console.log(document.getElementById("username").value);
+		}
+		function changefunc()
+		{
+			alert(document.forms[0].cakes.value); // forms[] gives all the forms in html as array 
+			console.log(document.forms[0].username.value);
+			console.log(document.forms[0].passw.value);
+		}
+		function submitfunc()
+		{
+			var form=document.getElementById("newform");
+		}
+		function validate() //checking the validity of username and pw
+		{
+			var name=document.forms[1].usern.value;
+			alert(name);
+			var pw=document.forms[1].psw.value;
+			alert(pw);
+			if(name=="xyz"&&pw=="123")
+			{
+				document.getElementById("newform2").submit();
+				return true;
+			}
+			else
+			{
+				alert("sorry");
+				return false;
+			}
+
+		}
+
+
+	</script>
+</body>
+</html>

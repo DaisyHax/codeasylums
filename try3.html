@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>try3</title>
+</head>
+<body>
+	<p id="mypara" class="random">
+		<p id="child1">
+
+		</p>
+		<p id="child2">
+
+		</p>
+	</p>
+	<img id="cat" src="5.jpg">
+	<script type="text/javascript">
+		document.getElementById('mypara').innerHTML="Dishi";     // document is a keyword acc to DOM
+		var x=document.getElementById('mypara').children;          //doubt here
+		          //inner child
+		console.log(x);
+
+		var randomElements=document.getElementsByClassName('random')
+		randomElements[0].innerHTML="DishiM";
+
+		//getElementByTagName
+		var tags=document.getElementsByTagName('p');
+		for(var i=tags.length-1;i>=0;i--)
+		{
+			console.log(tags[i]);
+		}
+
+		//change ELEMENT PROPERTY
+		document.getElementById("cat").src="3.jpg"; //img changed
+
+
+		console.log(window.innerWidth,window.innerHeight);
+		console.log(window.location.href);
+		//window.open("https://www.google.com");
+
+		if(window.innerWidth<900)
+		{
+			document.getElementById("cat").src="7.jpg";
+		}
+	</script>
+</body>
+</html>

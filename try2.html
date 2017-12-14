@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basics of JS</title>
+</head>
+<body>
+	<h1>First JS Open console to see output</h1>
+	<script type="text/javascript">
+		//console.log("hello! World");
+
+		/*debugger- we can write hi in console and it will tell us abt the func . acts as the terminal ... can b put in any line to check what variable or func works ryt until there*/
+		//debugger;
+		function hi()   //since hi func is globally scoped , it will b there at compile time already so debugger wont stop it . it is a global function.
+		{
+			alert("Hello World");
+		}
+		//Javascript variables
+		var x=1;        /* C is a strongly typed language as we specify datatypes while js does not so it is not. js only has "var"*/
+		var y="hello";
+		/*no data types in js.*/
+
+		var hi2 = function(){    // this is local so debugger wont read this.
+			alert("hi2");
+		}
+
+	</script>
+	<script src="try2.js"></script>
+</body>
+</html>
